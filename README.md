@@ -152,3 +152,36 @@ Successfully rebased and updated refs/heads/main.
 
 HP-@isaacb24 MINGW64 /d/web/AdvancedGit (main)
 ```
+Keeping History Tidy - Squashing Commits:
+
+```
+HP-@isaacb24 MINGW64 /d/web/AdvancedGit (main)
+$ touch test{4..6}.md
+
+HP-@isaacb24 MINGW64 /d/web/AdvancedGit (main)
+$ git add test5.md && git commit -m "chore: Create fifth files"
+[main fa09252] chore: Create fifth files
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test5.md
+
+HP-@isaacb24 MINGW64 /d/web/AdvancedGit (main)
+$ git add test6.md && git commit -m "chore: Create sixth files"
+[main 5af2c4c] chore: Create sixth files
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test6.md
+
+HP-@isaacb24 MINGW64 /d/web/AdvancedGit (main)
+$ git rebase -i Head~6
+fatal: invalid upstream 'Head~6'
+
+HP-@isaacb24 MINGW64 /d/web/AdvancedGit (main)
+$ git rebase -i Head~5
+hint: Waiting for your editor to close the file... 
+[detached HEAD 7671dd1] chore: Create fifth files
+ Date: Mon Jul 28 11:16:27 2025 +0200
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test5.md
+ create mode 100644 test6.md
+
+HP-@isaacb24 MINGW64 /d/web/AdvancedGit (main|REBASE 5/5)
+```
