@@ -119,3 +119,36 @@ $ git add test4.md && git commit -m "chore: Create fourth files"
 
 HP-@isaacb24 MINGW64 /d/web/AdvancedGit (main)
 ```
+
+Editing Commit History:
+
+```
+HP-@isaacb24 MINGW64 /d/web/AdvancedGit (main)
+$ git rebase -i HEAD~2
+Successfully rebased and updated refs/heads/main.
+
+
+HP-@isaacb24 MINGW64 /d/web/AdvancedGit (main)
+$ git rebase -i HEAD~3
+Stopped at 8e40dfd...  chore: Create another file
+You can amend the commit now, with
+
+  git commit --amend
+
+Once you are satisfied with your changes, run
+
+  git rebase --continue
+
+HP-@isaacb24 MINGW64 /d/web/AdvancedGit (main|REBASE 1/3)
+$ git commit --amend -m"Create second file"
+[detached HEAD 90ed136] Create second file
+ Date: Mon Jul 21 14:27:09 2025 +0200
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test2.md
+
+HP-@isaacb24 MINGW64 /d/web/AdvancedGit (main|REBASE 1/3)
+$ git rebase --continue
+Successfully rebased and updated refs/heads/main.
+
+HP-@isaacb24 MINGW64 /d/web/AdvancedGit (main)
+```
