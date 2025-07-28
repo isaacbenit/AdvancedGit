@@ -185,3 +185,71 @@ hint: Waiting for your editor to close the file...
 
 HP-@isaacb24 MINGW64 /d/web/AdvancedGit (main|REBASE 5/5)
 ```
+Splitting a Commit:
+
+```
+HP-@isaacb24 MINGW64 /d/web/AdvancedGit (main)
+$ git rebase -i Head~4
+error: cannot rebase: You have unstaged changes.
+error: Please commit or stash them.
+
+HP-@isaacb24 MINGW64 /d/web/AdvancedGit (main)
+$ git commit --amend -m'chore:create third and fourth files'
+[main b4c81c5] chore:create third and fourth files
+ Date: Mon Jul 28 11:16:27 2025 +0200
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test5.md
+ create mode 100644 test6.md
+
+HP-@isaacb24 MINGW64 /d/web/AdvancedGit (main)
+$ git add test4.md
+
+HP-@isaacb24 MINGW64 /d/web/AdvancedGit (main)
+$ git commit --amend -m'chore:create third and fourth files'
+[main 12588ee] chore:create third and fourth files
+ Date: Mon Jul 28 11:16:27 2025 +0200
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test5.md
+ create mode 100644 test6.md
+
+HP-@isaacb24 MINGW64 /d/web/AdvancedGit (main)
+$ git rebase -i Head~4
+Stopped at 12588ee...  chore:create third and fourth files
+You can amend the commit now, with
+
+  git commit --amend
+
+Once you are satisfied with your changes, run
+
+  git rebase --continue
+
+HP-@isaacb24 MINGW64 /d/web/AdvancedGit (main|REBASE 4/4)
+$ git reset Head~1
+
+HP-@isaacb24 MINGW64 /d/web/AdvancedGit (main|REBASE 4/4)
+$ git reset Head~2
+
+HP-@isaacb24 MINGW64 /d/web/AdvancedGit (main|REBASE 4/4)
+$ git add test3.md 
+
+HP-@isaacb24 MINGW64 /d/web/AdvancedGit (main|REBASE 4/4)
+$ git commit -m 'create third file'
+[detached HEAD c60b632] create third file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test3.md
+
+HP-@isaacb24 MINGW64 /d/web/AdvancedGit (main|REBASE 4/4)
+$ git add test4.md
+
+HP-@isaacb24 MINGW64 /d/web/AdvancedGit (main|REBASE 4/4)
+$ git commit -m 'create fourth file'
+[detached HEAD 0bc8e11] create fourth file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test4.md
+
+HP-@isaacb24 MINGW64 /d/web/AdvancedGit (main|REBASE 4/4)
+$ git rebase --continue
+Successfully rebased and updated refs/heads/main.
+
+HP-@isaacb24 MINGW64 /d/web/AdvancedGit (main)
+```
